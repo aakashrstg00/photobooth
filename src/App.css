@@ -1,0 +1,90 @@
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px 24px;
+}
+
+.app-footer {
+  padding: 24px;
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  border-top: 1px solid var(--border-color);
+  background: var(--surface-color);
+}
+
+/* Transitions */
+.step-enter {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.step-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 300ms, transform 300ms;
+}
+
+/* Common UI Elements */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  border-radius: var(--border-radius);
+  font-weight: 500;
+  gap: 8px;
+  font-size: 1rem;
+}
+
+.btn-primary {
+  background: var(--accent-color);
+  color: white;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: var(--accent-hover);
+  transform: translateY(-1px);
+}
+
+.btn-primary:disabled {
+  background: var(--border-color);
+  cursor: not-allowed;
+}
+
+.btn-secondary {
+  background: var(--surface-color);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+.btn-secondary:hover {
+  background: var(--bg-color);
+}
+
+.card {
+  background: var(--surface-color);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-md);
+  padding: 32px;
+}
+
+.section-title {
+  font-size: 2rem;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.section-subtitle {
+  color: var(--text-secondary);
+  text-align: center;
+  margin-bottom: 32px;
+}
