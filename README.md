@@ -1,73 +1,63 @@
-# React + TypeScript + Vite
+# 📸 PhotoBooth Studio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, interactive web application built with React and TypeScript that allows users to create beautiful, customizable photo collages—just like a digital photobooth! 
 
-Currently, two official plugins are available:
+## ✨ Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Upload & Crop**: Easily upload multiple photos and crop them to perfect squares.
+- **Dynamic Design Customization**:
+  - 🎨 Customize background colors.
+  - 🖼️ Choose from various background patterns (Dots, Lines, Grid, Checkers).
+  - 📏 Adjust pattern spacing dynamically.
+  - ✍️ Add custom text overlays with customizable size, color, and position (Top/Bottom).
+  - 🔤 Choose from a wide selection of beautiful fonts including *Dancing Script, Great Vibes, Pacifico, Caveat, Satisfy, Amatic SC, Courgette, Kaushan Script, Permanent Marker, and Sacramento*.
+- **Drag & Drop Reordering**: Intuitively drag and drop images in the live preview to reorder your collage instantly!
+- **Pixel-Perfect Export**: Render your masterpiece using HTML5 Canvas and export it as a high-quality `PNG` image or a `PDF` document.
+- **Beautiful UI**: Modern, responsive interface with smooth animations and transitions.
 
-## React Compiler
+## 🚀 Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Frontend Framework**: [React](https://reactjs.org/) (v18)
+- **Build Tool**: [Vite](https://vitejs.dev/)
+- **Language**: [TypeScript](https://www.typescriptlang.org/)
+- **Styling**: Vanilla CSS with CSS Variables for theme management
+- **Animations**: [Framer Motion](https://www.framer.com/motion/)
+- **Icons**: [Lucide React](https://lucide.dev/)
+- **Canvas Rendering**: Native HTML5 Canvas API
+- **PDF Generation**: [jsPDF](https://artskydj.github.io/jsPDF/docs/jsPDF.html)
+- **Confetti Effect**: [canvas-confetti](https://www.npmjs.com/package/canvas-confetti)
 
-## Expanding the ESLint configuration
+## 📦 Installation & Usage
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/aakashrstg00/photobooth.git
+   cd photobooth
+   ```
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+2. **Install dependencies**:
+   ```bash
+   npm install
+   ```
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+3. **Run the development server**:
+   ```bash
+   npm run dev
+   ```
+   *The app will be available at `http://localhost:5173`.*
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+4. **Build for production**:
+   ```bash
+   npm run build
+   ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 📸 Screenshots
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+*(Add screenshots of your application here! Consider adding screenshots for the Upload Step, Cropping Step, Design Editor, and Final Export screen.)*
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 📝 License
+
+This project is open-source and available under the [MIT License](LICENSE).
+
+---
+*Created by [aakashrstg00](https://github.com/aakashrstg00)*
