@@ -115,9 +115,15 @@ const UploadStep: React.FC<UploadStepProps> = ({ onUpload }) => {
             <style>{`
         .upload-grid {
           display: grid;
-          grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-          gap: 20px;
-          margin-bottom: 40px;
+          grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+          gap: 16px;
+          margin-bottom: 32px;
+        }
+        @media (max-width: 480px) {
+          .upload-grid {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+          }
         }
         .upload-box {
           aspect-ratio: 1;
@@ -144,10 +150,17 @@ const UploadStep: React.FC<UploadStepProps> = ({ onUpload }) => {
           align-items: center;
           gap: 8px;
           color: var(--text-secondary);
+          text-align: center;
+          padding: 12px;
         }
         .upload-icon {
           color: var(--border-color);
-          margin-bottom: 8px;
+          margin-bottom: 4px;
+        }
+        @media (max-width: 480px) {
+           .upload-icon { width: 32px; height: 32px; }
+           .upload-box-content span { font-size: 0.875rem; }
+           .upload-box-content small { display: none; }
         }
         .preview-item {
           aspect-ratio: 1;
@@ -168,8 +181,8 @@ const UploadStep: React.FC<UploadStepProps> = ({ onUpload }) => {
           right: 8px;
           background: rgba(0,0,0,0.5);
           color: white;
-          width: 24px;
-          height: 24px;
+          width: 28px;
+          height: 28px;
           border-radius: 50%;
           display: flex;
           align-items: center;
@@ -188,10 +201,16 @@ const UploadStep: React.FC<UploadStepProps> = ({ onUpload }) => {
           padding: 12px;
           border-radius: var(--border-radius);
           margin-bottom: 24px;
+          font-size: 0.875rem;
         }
         .action-bar {
           display: flex;
           justify-content: center;
+        }
+        @media (max-width: 480px) {
+          .action-bar .btn {
+            width: 100%;
+          }
         }
       `}</style>
         </motion.div>

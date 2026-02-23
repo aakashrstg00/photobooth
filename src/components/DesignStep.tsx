@@ -183,22 +183,36 @@ const DesignStep: React.FC<DesignStepProps> = ({ images, setImages, configs, set
         @media (max-width: 900px) {
           .design-layout {
              grid-template-columns: 1fr;
+             gap: 24px;
           }
         }
         .preview-panel {
           position: sticky;
-          top: 100px;
+          top: 80px;
           max-width: 500px;
           margin: 0 auto;
-          max-height: calc(100vh - 140px);
+          max-height: calc(100vh - 120px);
           overflow-y: auto;
           scrollbar-width: none;
+        }
+        @media (max-width: 900px) {
+          .preview-panel {
+            position: relative;
+            top: 0;
+            max-height: none;
+            overflow: visible;
+          }
         }
         .preview-panel::-webkit-scrollbar {
           display: none;
         }
         .controls-panel {
           padding: 24px;
+        }
+        @media (max-width: 480px) {
+          .controls-panel {
+            padding: 16px;
+          }
         }
         .control-groups {
           display: flex;
@@ -277,6 +291,11 @@ const DesignStep: React.FC<DesignStepProps> = ({ images, setImages, configs, set
           grid-template-columns: 1fr 1fr;
           gap: 12px;
           margin-top: 32px;
+        }
+        @media (max-width: 480px) {
+          .design-actions {
+             grid-template-columns: 1fr;
+          }
         }
       `}</style>
     </motion.div>

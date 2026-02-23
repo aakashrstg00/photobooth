@@ -2,43 +2,43 @@ import React from 'react';
 import type { Step } from '../types';
 
 interface ProgressBarProps {
-    currentStep: Step;
+  currentStep: Step;
 }
 
 const steps: { key: Step; label: string }[] = [
-    { key: 'UPLOAD', label: 'Upload' },
-    { key: 'CROP', label: 'Crop' },
-    { key: 'DESIGN', label: 'Design' },
-    { key: 'EXPORT', label: 'Export' },
+  { key: 'UPLOAD', label: 'Upload' },
+  { key: 'CROP', label: 'Crop' },
+  { key: 'DESIGN', label: 'Design' },
+  { key: 'EXPORT', label: 'Export' },
 ];
 
 const ProgressBar: React.FC<ProgressBarProps> = ({ currentStep }) => {
-    const currentIndex = steps.findIndex((s) => s.key === currentStep);
+  const currentIndex = steps.findIndex((s) => s.key === currentStep);
 
-    return (
-        <div className="progress-bar-container">
-            <div className="progress-steps container">
-                {steps.map((step, index) => {
-                    const isActive = index <= currentIndex;
-                    const isCurrent = index === currentIndex;
+  return (
+    <div className="progress-bar-container">
+      <div className="progress-steps container">
+        {steps.map((step, index) => {
+          const isActive = index <= currentIndex;
+          const isCurrent = index === currentIndex;
 
-                    return (
-                        <React.Fragment key={step.key}>
-                            <div className={`step-item ${isActive ? 'active' : ''} ${isCurrent ? 'current' : ''}`}>
-                                <div className="step-number">{index + 1}</div>
-                                <div className="step-label">{step.label}</div>
-                            </div>
-                            {index < steps.length - 1 && (
-                                <div className={`step-line ${index < currentIndex ? 'active' : ''}`} />
-                            )}
-                        </React.Fragment>
-                    );
-                })}
-            </div>
-            <style>{`
+          return (
+            <React.Fragment key={step.key}>
+              <div className={`step-item ${isActive ? 'active' : ''} ${isCurrent ? 'current' : ''}`}>
+                <div className="step-number">{index + 1}</div>
+                <div className="step-label">{step.label}</div>
+              </div>
+              {index < steps.length - 1 && (
+                <div className={`step-line ${index < currentIndex ? 'active' : ''}`} />
+              )}
+            </React.Fragment>
+          );
+        })}
+      </div>
+      <style>{`
         .progress-bar-container {
           background: var(--surface-color);
-          padding: 20px 0;
+          padding: 16px 0;
           border-bottom: 1px solid var(--border-color);
         }
         .progress-steps {
@@ -51,13 +51,13 @@ const ProgressBar: React.FC<ProgressBarProps> = ({ currentStep }) => {
           display: flex;
           flex-direction: column;
           align-items: center;
-          gap: 8px;
+          gap: 6px;
           position: relative;
           z-index: 1;
         }
         .step-number {
-          width: 32px;
-          height: 32px;
+          width: 28px;
+          height: 28px;
           border-radius: 50%;
           border: 2px solid var(--border-color);
           background: var(--surface-color);
@@ -65,16 +65,27 @@ const ProgressBar: React.FC<ProgressBarProps> = ({ currentStep }) => {
           align-items: center;
           justify-content: center;
           font-weight: 600;
-          font-size: 0.875rem;
+          font-size: 0.75rem;
           color: var(--text-secondary);
           transition: all 0.3s ease;
         }
         .step-label {
-          font-size: 0.75rem;
+          font-size: 0.65rem;
           font-weight: 500;
           color: var(--text-secondary);
           text-transform: uppercase;
           letter-spacing: 0.05em;
+        }
+        @media (max-width: 480px) {
+          .step-label {
+            display: none;
+          }
+          .step-item {
+            gap: 0;
+          }
+          .step-line {
+             margin-bottom: 0 !important;
+          }
         }
         .step-item.active .step-number {
           border-color: var(--accent-color);
@@ -92,15 +103,15 @@ const ProgressBar: React.FC<ProgressBarProps> = ({ currentStep }) => {
           flex: 1;
           height: 2px;
           background: var(--border-color);
-          margin: 0 12px;
-          margin-bottom: 24px;
+          margin: 0 8px;
+          margin-bottom: 20px;
         }
         .step-line.active {
           background: var(--accent-color);
         }
       `}</style>
-        </div>
-    );
+    </div>
+  );
 };
 
 export default ProgressBar;

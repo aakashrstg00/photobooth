@@ -56,79 +56,106 @@ const ExportStep: React.FC<ExportStepProps> = ({ images, configs, onBack }) => {
             animate={{ scale: 1, opacity: 1 }}
             className="export-step"
         >
-            <div className="card export-card">
-                <div className="success-header">
-                    <CheckCircle2 size={48} className="success-icon" />
-                    <h2 className="section-title">Ready for the World!</h2>
-                    <p className="section-subtitle">Your photobooth masterpiece is complete.</p>
-                </div>
-
-                <div className="final-preview">
+            <div className="export-layout">
+                <div className="preview-container card">
                     <CollagePreview images={images} configs={configs} />
                 </div>
 
-                <div className="export-actions">
-                    <button
-                        className="btn btn-primary export-btn"
-                        onClick={handleExportImage}
-                        disabled={isExporting}
-                    >
-                        <Download size={20} />
-                        {isExporting ? 'Generating...' : 'Download PNG'}
-                    </button>
+                <div className="info-panel card">
+                    <div className="success-header">
+                        <CheckCircle2 size={48} className="success-icon" />
+                        <h2 className="section-title" style={{ textAlign: 'left', fontSize: '1.5rem' }}>Ready for the World!</h2>
+                        <p className="section-subtitle" style={{ textAlign: 'left', marginBottom: '24px' }}>Your photobooth masterpiece is complete.</p>
+                    </div>
 
-                    <button
-                        className="btn btn-secondary export-btn"
-                        onClick={handleExportPDF}
-                        disabled={isExporting}
-                    >
-                        <FileText size={20} />
-                        {isExporting ? 'Generating...' : 'Save as PDF'}
-                    </button>
-                </div>
+                    <div className="export-actions">
+                        <div className="action-buttons">
+                            <button
+                                className="btn btn-primary"
+                                onClick={handleExportImage}
+                                disabled={isExporting}
+                            >
+                                <Download size={20} />
+                                {isExporting ? 'Generating...' : 'Download PNG'}
+                            </button>
 
-                <div className="share-section">
-                    <button className="btn-share" onClick={() => alert('Sharing coming soon!')}>
-                        <Share2 size={18} />
-                        <span>Share to Social</span>
-                    </button>
-                    <button className="btn-back-design" onClick={onBack}>
-                        <ArrowLeft size={16} />
-                        <span>Back to Editor</span>
-                    </button>
+                            <button
+                                className="btn btn-secondary"
+                                onClick={handleExportPDF}
+                                disabled={isExporting}
+                            >
+                                <FileText size={20} />
+                                {isExporting ? 'Generating...' : 'Save as PDF'}
+                            </button>
+                        </div>
+
+                        <div className="share-section">
+                            <button className="btn-share" onClick={() => alert('Sharing coming soon!')}>
+                                <Share2 size={18} />
+                                <span>Share to Social</span>
+                            </button>
+                            <button className="btn-back-design" onClick={onBack}>
+                                <ArrowLeft size={16} />
+                                <span>Back to Editor</span>
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
 
             <style>{`
-        .export-card {
-          max-width: 600px;
+        .export-layout {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 32px;
+          align-items: start;
+        }
+        @media (max-width: 900px) {
+          .export-layout {
+            grid-template-columns: 1fr;
+            gap: 24px;
+          }
+        }
+        .preview-container {
+          max-width: 500px;
           margin: 0 auto;
-          text-align: center;
+          padding: 24px;
+        }
+        .info-panel {
+          padding: 32px;
+        }
+        @media (max-width: 480px) {
+          .info-panel {
+            padding: 20px;
+          }
+          .preview-container {
+            padding: 16px;
+          }
         }
         .success-icon {
           color: #10b981;
-          margin-bottom: 16px;
-        }
-        .final-preview {
-          margin: 32px auto;
-          max-width: 320px;
+          margin-bottom: 20px;
         }
         .export-actions {
           display: flex;
           flex-direction: column;
-          gap: 12px;
-          margin-top: 32px;
+          gap: 24px;
         }
-        .export-btn {
-          width: 100%;
-          padding: 16px;
-          font-size: 1.125rem;
+        .action-buttons {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 12px;
+        }
+        @media (max-width: 480px) {
+           .action-buttons {
+              grid-template-columns: 1fr;
+           }
         }
         .share-section {
           display: flex;
           justify-content: space-between;
           align-items: center;
-          margin-top: 40px;
+          margin-top: 16px;
           padding-top: 24px;
           border-top: 1px solid var(--border-color);
         }

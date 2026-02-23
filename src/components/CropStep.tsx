@@ -120,7 +120,7 @@ const CropStep: React.FC<CropStepProps> = ({ rawImages, onComplete, onBack }) =>
           display: flex;
           justify-content: space-between;
           align-items: center;
-          margin-bottom: 24px;
+          margin-bottom: 20px;
         }
         .btn-back {
           display: flex;
@@ -128,6 +128,10 @@ const CropStep: React.FC<CropStepProps> = ({ rawImages, onComplete, onBack }) =>
           gap: 8px;
           color: var(--text-secondary);
           font-weight: 500;
+          font-size: 0.875rem;
+        }
+        @media (max-width: 480px) {
+           .btn-back span { display: none; }
         }
         .crop-progress {
           font-weight: 600;
@@ -135,22 +139,27 @@ const CropStep: React.FC<CropStepProps> = ({ rawImages, onComplete, onBack }) =>
           background: #eee;
           padding: 4px 12px;
           border-radius: 20px;
-          font-size: 0.875rem;
+          font-size: 0.75rem;
         }
         .cropper-container {
           position: relative;
           width: 100%;
-          height: 400px;
+          height: 350px;
           background: #333;
           border-radius: var(--border-radius);
           overflow: hidden;
-          margin-bottom: 24px;
+          margin-bottom: 20px;
+        }
+        @media (max-width: 480px) {
+          .cropper-container {
+            height: 300px;
+          }
         }
         .cropper-controls {
           display: flex;
           flex-direction: column;
           align-items: center;
-          gap: 24px;
+          gap: 20px;
         }
         .zoom-slider {
           display: flex;
@@ -162,6 +171,7 @@ const CropStep: React.FC<CropStepProps> = ({ rawImages, onComplete, onBack }) =>
         .zoom-slider span {
           font-weight: 500;
           color: var(--text-secondary);
+          font-size: 0.875rem;
         }
         .slider {
           flex: 1;
